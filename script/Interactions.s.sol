@@ -13,7 +13,7 @@ contract FundFundMe is Script {
     uint256 constant SEND_VALUE = 0.01 ether; 
     function fundFundme (address mostRecentlyDeployed) public {
         vm.startBroadcast();
-        FundMe(payable(mostRecentlyDeployed).fund{value: SEND_VALUE}();
+        FundMe(payable(mostRecentlyDeployed)).fund{value: SEND_VALUE}();
         vm.stopBroadcast();
         console.log("FundMe contract funded with %s", SEND_VALUE);
     }
