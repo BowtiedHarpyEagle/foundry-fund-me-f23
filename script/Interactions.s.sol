@@ -32,7 +32,9 @@ contract FundFundMe is Script {
 
 contract WithdrawFundMe is Script {
         function withdrawFundMe (address mostRecentlyDeployed) public {
+        vm.startBroadcast();
         FundMe(payable(mostRecentlyDeployed)).withdraw();
+        vm.stopBroadcast();
     }
 
     function run() external {
