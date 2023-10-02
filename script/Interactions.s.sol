@@ -11,7 +11,7 @@ import {FundMe} from "../src/FundMe.sol";
 
 contract FundFundMe is Script {
     uint256 constant SEND_VALUE = 0.01 ether; 
-    function fundFundme (address mostRecentlyDeployed) public {
+    function fundFundMe (address mostRecentlyDeployed) public {
         vm.startBroadcast();
         FundMe(payable(mostRecentlyDeployed)).fund{value: SEND_VALUE}();
         vm.stopBroadcast();
@@ -19,12 +19,29 @@ contract FundFundMe is Script {
     }
 
     function run() external {
-        address mostRecentlyDeployed = DevOpsTools.get_most_recent_deployment("FundMe", block.chainid);
-        
-
+        address mostRecentlyDeployed = DevOpsTools.get_most_recent_deployment(
+            "FundMe", 
+            block.chainid
+        );
+        vm.startBroadcast();
+        fundFundMe(mostRecentlyDeployed);
+        vm.stopBroadcast();
     }
+ 
 }
 
-contract WithdrawFundME is Script {
+contract WithdrawFundMe is Script {
+        function withdrawFundMe (address mostRecentlyDeployed) public {
+        FundMe(payable(mostRecentlyDeployed)).withdraw();
+    }
 
+    function run() external {
+        address mostRecentlyDeployed = DevOpsTools.get_most_recent_deployment(
+            "FundMe", 
+            block.chainid
+        );
+        vm.startBroadcast();
+        withdrawFundMe(mostRecentlyDeployed);
+        vm.stopBroadcast();
+    }
 }
