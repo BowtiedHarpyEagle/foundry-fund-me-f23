@@ -1,3 +1,7 @@
+## BowtiedHarpyEagle's foundry-fund-me-f23
+
+This is my repo of Patrick Collins' Foundry-AI full course 2023, lesson 7 foundry fund me. The only thing I did different than the course is, I started committing and pushing from the beginning of the lesson, and not at the end. I did this because first time I was going through the course, I felt lost. Second time, I thought it would be a good idea to commit-push often, so that I can revert back to a previous commit, or ask questions more intelligently by sharing my github repo.
+
 ## Foundry
 
 **Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
